@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="../../resources/lib/bootstrap-3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../resources/lib/fullpage/jquery.fullPage.css">
     <style>
+        #menu { margin: 0; padding: 0; position: fixed; left: 10px; top: 10px; list-style-type: none; z-index: 70;}
+        #menu li { float: left; margin:  0 10px 0 0; font-size: 14px;}
+        #menu a { float: left; padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none;}
+        #menu .active a { color: #fff; background-color: #333;}
+
         .section1 { background: url(../../resources/img/sample/full1.jpg) 50%;}
         .section2 { background: url(../../resources/img/sample/full2.jpg) 50%;}
         .section3 { background: url(../../resources/img/sample/full3.jpg) 50%;}
@@ -28,11 +33,18 @@
 </head>
 <body>
 
+<ul id="menu">
+    <li data-menuanchor="page1" class="active"><a href="#page1">第一屏</a></li>
+    <li data-menuanchor="page2"><a href="#page2">第二屏</a></li>
+    <li data-menuanchor="page3"><a href="#page3">第三屏</a></li>
+    <li data-menuanchor="page4"><a href="#page4">第四屏</a></li>
+</ul>
+
 <div id="dowebok">
-    <div class="section section1"></div>
-    <div class="section section2"></div>
-    <div class="section section3"></div>
-    <div class="section section4"></div>
+    <div class="section section1">section1</div>
+    <div class="section section2">section2</div>
+    <div class="section section3">section3</div>
+    <div class="section section4">section4</div>
 </div>
 
 <script type="text/javascript" src="../../resources/js/vendor/jquery-1.11.3.js"></script>
@@ -40,7 +52,11 @@
 <script type="text/javascript" src="../../resources/lib/fullpage/jquery.fullPage.js"></script>
 <script>
     $(function(){
-        $('#dowebok').fullpage();
+        $('#dowebok').fullpage({
+            anchors: ['page1', 'page2', 'page3', 'page4'],
+            menu: '#menu',
+            navigation:true
+        });
     });
 </script>
 </body>
